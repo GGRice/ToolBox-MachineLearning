@@ -3,7 +3,7 @@
 import matplotlib.pyplot as plt
 import numpy
 from sklearn.datasets import *
-from sklearn.cross_validation import train_test_split
+from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
 
