@@ -31,7 +31,17 @@ def train_model():
     # For consistency with the previous example use
     # model = LogisticRegression(C=10**-10) for your learner
 
-    # TODO: your code here
+    for num in range (len(train_percentages)):
+        test_acc = []
+        for trials in range (num_trials):
+            X_train, X_test, y_train, y_test = train_test_split(data.data, data.target,
+                                                train_size= train_percentages[num]/100)
+            model = LogisticRegression(C=10**-10)
+            model.fit(X_train, y_train)
+            test_acc.append(model.score(X_test, y_test))
+        test_accuracies[num] = numpy.mean(test_acc)
+
+
 
     fig = plt.figure()
     plt.plot(train_percentages, test_accuracies)
@@ -40,7 +50,10 @@ def train_model():
     plt.show()
 
 
+
+
+
 if __name__ == "__main__":
     # Feel free to comment/uncomment as needed
-    display_digits()
-    # train_model()
+    # display_digits()
+    train_model()
