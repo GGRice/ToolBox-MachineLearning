@@ -9,12 +9,11 @@ from sklearn.linear_model import LogisticRegression
 
 def display_digits():
     digits = load_digits()
-    print(digits.DESCR)
+    #print(digits.DESCR)
     fig = plt.figure()
     for i in range(10):
         subplot = fig.add_subplot(5, 2, i+1)
         subplot.matshow(numpy.reshape(digits.data[i], (8, 8)), cmap='gray')
-
     plt.show()
 
 
@@ -55,5 +54,5 @@ def train_model():
 
 if __name__ == "__main__":
     # Feel free to comment/uncomment as needed
-    # display_digits()
-    train_model()
+    display_digits()
+    # train_model()
